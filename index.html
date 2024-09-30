@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Search Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="nav-bar">
+    <button class="nav-1">HOME</button>
+    <button class="nav-1">MAPS</button>
+    <button class="nav-1">GMAIL</button>
+    <button class="nav-1">NEWS</button>
+    <button class="nav-1">CALENDAR</button>
+    <button class="nav-1">YOUTUBE</button>
+    <button class="nav-1">MORE</button>
+  </div>
+    <div class="search-container">
+        <h1>Alex, The Seach Engine</h1>
+        <body background="16.JPEG" style="background-size: cover;"></body>
+        <div class="search-bar">
+            <input type="text" placeholder="Search" class="search-input">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="button-container">
+            <button class="additional-button">Search Anything</button>
+            <button class="additional-button">Search Anytime</button>
+            <button class="additional-button">Search Anywhere</button>
+        </div>
+      <div class="history container">
+        <h2>Search History</h2>
+        <ul class="search-history"></ul>
+      </div>
+    </div>
+
+    <script>
+      const searchInput = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-button');
+const searchHistoryList = document.querySelector('.search-history');
+
+const searchHistory = [];
+
+searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value;
+    if (searchTerm) {
+        searchHistory.unshift(searchTerm);
+        updateSearchHistory();
+        // Implement your search functionality here
+    }
+});
+
+function updateSearchHistory() {
+    searchHistoryList.innerHTML = '';
+    searchHistory.forEach(term => {
+        const listItem = document.createElement('li');
+        listItem.textContent = term;
+        searchHistoryList.appendChild(listItem);
+    });
+}
+    </script>
+</body>
+</html>
